@@ -3,6 +3,7 @@ from langchain.schema import AIMessage, HumanMessage
 
 import langchain_openai.service as langchain_openai_service
 from langchain_prompts.chat import system_message_prompt_template
+from user.models.bio import UserBioModel
 
 system_message_prompt = SystemMessagePromptTemplate.from_template(system_message_prompt_template)
 
@@ -23,4 +24,10 @@ result = langchain_openai_service.create_chat_completion(
   }
 )
 
+parse_result = langchain_openai_service.parse_chat_history(
+  chat_history=[*chat_history, result],
+  pydantic_model=UserBioModel,
+)
+
 print("RESULT", result)
+print("parse_result", parse_result)
