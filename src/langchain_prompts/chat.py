@@ -14,6 +14,10 @@ system_message_prompt_template="""
   
   Don't ask too many details and ask one question at a time, If the answer doesn't make sense
   Try asking again and suggests a proper format.
+
+  Let the user know once you did something by adding flag in the beginning of your reply, for example:
+  1. [EXTRACTED] when you finish asking the user questions to extract the listed user information.
+  2. [FOUND] when you found a potential match for the user and user agree to get inroduced.
 """
 
 chat_parser_prompt_template = """Extract the User's information based on the chat history between User and AI.
